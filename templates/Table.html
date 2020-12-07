@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{%block title%} Data of candidates till date {%endblock%}
+
+{%block content%}
+	<h1 id="Database">Data of all candidates till date</h1>
+	<table class='styled-table' align="center">
+
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Address</th>
+				<th>Per Brick Cost</th>					
+				<th>Bricks_Per_Day</th>
+				<th>Bricks_Made_Date</th>
+				<th>Revised_By</th>
+				<th>Adv_Pay</th>
+			</tr>
+		</thead>
+
+		<tbody>
+     		{% for row in result %}    
+            	<tr>
+                	<td>{{row[0]}}</td>
+                	<td>{{row[1]}}</td>
+                	<td>{{row[2]}}</td>
+                	<td>{{row[3]}}</td>
+                	<td>{{row[4]}}</td>
+                	<td>{{row[5]}}</td>
+                	<td>{{row[6]}}</td>
+                	<td>{{row[7]}}</td>
+            	</tr>
+        	{% endfor %}
+    	</tbody>
+	</table>
+	<p align="center">
+		<a class="HomePage button3" href=Home>
+			<button class="button3">Go to Home Page</button>
+		</a>
+	</p>
+{% endblock %}
