@@ -49,14 +49,25 @@ def register():
 def Advance():
 	if request.method=='POST':
 		Name = request.form['brickmaker']
-		Adv_Pay = request.form['AdvancePay']
-		c.execute("INSERT INTO Adv_Pay (Name,Advance) values (?,?)",(Name,Adv_Pay))
-		conn.commit()
+		Adv_Pay = request.form['AdvancePay']		
+		
+		c.execute("Select Name from Adv_Pay where Name=?",(Name,))
+		result = c.fetchone()
+		print(result)
+
+		if result:
+			c.execute("UPDATE Adv_Pay SET Advance=? where Name=?",(Adv_Pay,Name))
+
+		else:
+			c.execute("INSERT INTO Adv_Pay (Name,Advance) values (?,?)",(Name,Adv_Pay))
+			conn.commit()
+
 
 		return render_template('Home.html')
 	else:
-		result = c.execute("Select Name from Registration")
+		result = c.execute("Select Distinct(Name) from Registration")
 		result = result.fetchall()
+
 		return render_template('AdvancePay.html',result=result)
 
 
