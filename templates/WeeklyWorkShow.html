@@ -1,24 +1,23 @@
 {% extends "base.html" %}
-{%block title%} Data of candidates till date {%endblock%}
+{%block title%} Weekly Data of Candidate {%endblock%}
 
 {%block content%}
-	<h1 id="Database">Registration Details of BrickMaker</h1>
+	<h1 id="Database">Weekly Work Details of the BrickMaker</h1>
 	<table class='styled-table' align="center">
 
 		<thead>
 			<tr>
 				<th>Name</th>
-				<th>Address</th>
 				<th>Phone</th>
-				<th>Per Brick Cost</th>					
-				<th>Bricks_Per_Day</th>
+				<th>Per Brick Cost</th>
+				<th>Bricks_Per_Day</th>					
 				<th>Bricks_Made_Date</th>
 				<th>Revised_By</th>
 			</tr>
 		</thead>
 
 		<tbody>
-     		{% for row in result %}    
+     		{% for row in result1 %}    
             	<tr>
                 	<td>{{row[0]}}</td>
                 	<td>{{row[1]}}</td>
@@ -26,25 +25,24 @@
                 	<td>{{row[3]}}</td>
                 	<td>{{row[4]}}</td>
                 	<td>{{row[5]}}</td>
-                	<td>{{row[6]}}</td>
             	</tr>
         	{% endfor %}
     	</tbody>
 	</table>
 
-	<h1 id="Database">Advance Payment details of BrickMaker</h1>
-	<p>
+	<h1 id="Database">Advance Paid to BrickMaker</h1>
+
 	<table class='styled-table' align="center">
 
 		<thead>
 			<tr>
 				<th>Name</th>
-				<th>Advance Payment</th>
+				<th>Advance Paid</th>
 			</tr>
 		</thead>
 
 		<tbody>
-     		{% for row in table2 %}    
+     		{% for row in result2 %}    
             	<tr>
                 	<td>{{row[0]}}</td>
                 	<td>{{row[1]}}</td>
@@ -52,10 +50,17 @@
         	{% endfor %}
     	</tbody>
 	</table>
-		
-	</p>
-
 	<p align="center">
+
+		<h1 id="Database">Cost per Brick</h1>
+		<input type="text" name="PerBrickCost" value="{{result4}}">
+
+		<h1 id="Database">Total bricks made</h1>
+		<input type="text" name="BricksMade" value="{{result3}}">
+
+		<h1 id="Database">Total amount to be paid</h1>
+		<input type="text" name="Amount" value="{{Total_Price}}">
+
 		<a class="HomePage button3" href=Home>
 			<button class="button3">Go to Home Page</button>
 		</a>

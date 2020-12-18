@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{%block title%} Brick Maker Rates {%endblock%}
+{%block content%}
+
+<h1>Welcome to Brick Maker Weekly Work Page</h1>
+<form action="#" method="POST" class="Submission-Form">
+
+	<label>Select name of Brick Maker</label>
+
+	<select name="brickmaker">
+		{% for row in result %}
+  			<option value="{{row[0]}}">{{row[0]}}</option>
+  		{% endfor %}
+	</select> 
+	
+
+	<label for="brick entry date">From Date</label>
+	<input type="date" name="FromDate" required>
+
+		<label for="brick entry date">To Date</label>
+	<input type="date" name="ToDate" required>
+
+	<input type="submit" value="Show Details" class="sbt_btn">
+
+</form>
+{% endblock %}
